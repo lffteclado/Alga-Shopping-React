@@ -1,16 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import HomeView from './views/home.view'
 
-function App (){
-return <div>
-  Olá Mundo!
-</div>
-}
 
 ReactDOM.render(
   <React.StrictMode>
-  <App />
+  <HomeView />
   </React.StrictMode>,
   document.getElementById('root')
 );
