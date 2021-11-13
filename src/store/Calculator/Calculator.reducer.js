@@ -4,7 +4,7 @@ export default (state = 0, action) => {
             return action.payload[0] + action.payload[1]
 
         case 'SUBTRACT':
-            return action.payload[0] + action.payload[1]
+            return action.payload[0] - action.payload[1]
 
         default:
             return state
