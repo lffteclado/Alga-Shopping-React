@@ -6,7 +6,6 @@ import { Container, Wrapper } from "./App.style";
 import ShoppingList from "../ShoppingList";
 import productMock from '../../mocks/products.json'
 import extractPercentage from "../../utils/extractPercentage";
-import styled from "styled-components";
 
 export default function App (){
 const colors = ['#62CBC6', '#00ABAD', '#00858C', '#006073', '#004D61']
