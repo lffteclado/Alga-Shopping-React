@@ -7,11 +7,15 @@ import ShoppingList from "../ShoppingList";
 import productMock from '../../mocks/products.json'
 import extractPercentage from "../../utils/extractPercentage";
 import Calculator from "../Calculator/Calculator";
+import { useSelector } from "react-redux";
+import { selectAllProducts } from "../../store/Products/Products.selectors";
 
 export default function App() {
   const colors = ['#62CBC6', '#00ABAD', '#00858C', '#006073', '#004D61']
 
-  const [products, setProducts] = useState(productMock.products)
+  const products = useSelector(selectAllProducts)
+
+  //const [products, setProducts] = useState(productMock.products)
   const [selectedProducts, setSelectedProducts] = useState([])
   const [totalPrice, setTotalPrice] = useState(0)
 
@@ -33,7 +37,7 @@ export default function App() {
       product.id === id ? { ...product, checked: !product.checked } : product
     )
 
-    setProducts(newProduct)
+    //setProducts(newProduct)
   }
 
   /*useEffect(() =>{
