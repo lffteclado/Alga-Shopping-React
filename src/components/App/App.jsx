@@ -1,43 +1,46 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { Container, Wrapper } from "./App.style";
+
 import LineChart from "../../shared/LineChart";
 import AppContainer from "../AppContainer";
 import AppHeader from '../AppHeader'
-import { Container, Wrapper } from "./App.style";
 import ShoppingList from "../ShoppingList";
-import productMock from '../../mocks/products.json'
 import extractPercentage from "../../utils/extractPercentage";
 import Calculator from "../Calculator/Calculator";
-import { useSelector } from "react-redux";
-import { selectAllProducts } from "../../store/Products/Products.selectors";
+
+import {
+        selectAllProducts,
+        selectSelectedProductsTotalPrice,
+        selectSelectProducts
+       } from "../../store/Products/Products.selectors";
+import { toggleProduct } from "../../store/Products/Products.actions";
 
 export default function App() {
   const colors = ['#62CBC6', '#00ABAD', '#00858C', '#006073', '#004D61']
 
   const products = useSelector(selectAllProducts)
+  const selectedProducts = useSelector(selectSelectProducts)
+  const totalPrice = useSelector(selectSelectedProductsTotalPrice)
 
-  //const [products, setProducts] = useState(productMock.products)
-  const [selectedProducts, setSelectedProducts] = useState([])
-  const [totalPrice, setTotalPrice] = useState(0)
+  const dispatch = useDispatch();
 
-  useEffect(() => {
+  /*useEffect(() => {
     const newSelectedProducts = products
       .filter(product => product.checked)
     setSelectedProducts(newSelectedProducts)
-  }, [products])
+  }, [products])*/
 
-  useEffect(() => {
+  /*useEffect(() => {
     const total = selectedProducts
       .map(product => product.price)
       .reduce((a, b) => a + b, 0)
     setTotalPrice(total)
-  }, [selectedProducts])
+  }, [selectedProducts])*/
 
   function handleToggle(id) {
-    const newProduct = products.map(product =>
-      product.id === id ? { ...product, checked: !product.checked } : product
-    )
-
-    //setProducts(newProduct)
+   dispatch(toggleProduct(id))
   }
 
   /*useEffect(() =>{

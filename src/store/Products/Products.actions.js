@@ -1,6 +1,6 @@
-export function selectProduct(id) {
+export function toggleProduct(id) {
     return{
-        type: 'SELECT_PRODUCT',
+        type: 'TOGGLE_PRODUCT',
         payload: id
     }
 }
