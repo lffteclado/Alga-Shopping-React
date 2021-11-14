@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Container, Wrapper } from "./App.style";
@@ -11,7 +11,6 @@ import extractPercentage from "../../utils/extractPercentage";
 import Calculator from "../Calculator/Calculator";
 
 import {
-        selectAllProducts,
         selectSelectedProductsTotalPrice,
         selectSelectProducts
        } from "../../store/Products/Products.selectors";
@@ -20,7 +19,6 @@ import { toggleProduct } from "../../store/Products/Products.actions";
 export default function App() {
   const colors = ['#62CBC6', '#00ABAD', '#00858C', '#006073', '#004D61']
 
-  const products = useSelector(selectAllProducts)
   const selectedProducts = useSelector(selectSelectProducts)
   const totalPrice = useSelector(selectSelectedProductsTotalPrice)
 

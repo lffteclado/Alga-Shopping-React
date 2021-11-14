@@ -1,4 +1,4 @@
-export default (state = 0, action) => {
+const reducer = (state = 0, action) => {
     switch (action.type) {
         case 'SUM':
             return action.payload[0] + action.payload[1]
@@ -10,3 +10,5 @@ export default (state = 0, action) => {
             return state
     }
 }
+
+export default reducer

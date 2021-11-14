@@ -1,7 +1,7 @@
 import productsMock from '../../mocks/products.json'
 
 
-export default (state = productsMock.products, action) => {
+const reducer = (state = productsMock.products, action) => {
     switch (action.type) {
         case 'TOGGLE_PRODUCT':
         return  state.map(product =>
@@ -13,3 +13,5 @@ export default (state = productsMock.products, action) => {
             return state
     }
 }
+
+export default reducer
