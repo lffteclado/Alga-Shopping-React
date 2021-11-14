@@ -56,13 +56,12 @@ export default function App() {
         left={
           <ShoppingList
             title="Produtos Disponíveis"
-            products={products}
             onToggle={handleToggle}
           />}
         middle={
           <ShoppingList
             title="Sua Lista de Compras"
-            products={selectedProducts}
+            displayOnlySelected
             onToggle={handleToggle}
           />}
         right={
